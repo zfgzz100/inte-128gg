@@ -5,15 +5,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt install wine qemu-kvm *zenhei* xz-utils d
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
 RUN tar -xvf v1.2.0.tar.gz
 RUN mkdir $HOME/.vnc
-RUN echo 'Tz87203794' | vncpasswd -f > $HOME/.vnc/passwd
+RUN echo 'Tz8720' | vncpasswd -f > $HOME/.vnc/passwd
 RUN echo '/bin/env MOZ_FAKE_NO_SANDBOX=1 dbus-launch xfce4-session' > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
-RUN echo 'whoami ' >>/Tz87203794.sh
-RUN echo 'cd ' >>/Tz87203794.sh
-RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' " >>/Tz87203794.sh
-RUN echo 'cd /noVNC-1.2.0' >>/Tz87203794.sh
-RUN echo './utils/launch.sh --vnc localhost:7900 --listen 8900 ' >>/Tz87203794.sh
-RUN chmod 755 /Tz87203794.sh
+RUN echo 'whoami ' >>/Tz8720.sh
+RUN echo 'cd ' >>/Tz8720.sh
+RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' " >>/Tz8720.sh
+RUN echo 'cd /noVNC-1.2.0' >>/Tz8720.sh
+RUN echo './utils/launch.sh --vnc localhost:7900 --listen 8900 ' >>/Tz8720.sh
+RUN chmod 755 /Tz8720.sh
 EXPOSE 8900
-CMD /Tz87203794.sh
+CMD /Tz8720.sh
